@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmortyflutterapp/models/characters.dart';
+import 'characters_grid.dart';
 import 'list_tile_info.dart';
 import 'package:provider/provider.dart';
 
@@ -13,10 +14,14 @@ class CharacterInfo extends StatelessWidget {
         Provider.of<CharactersList>(context).characters.reversed.toList();
     return GestureDetector(
       onPanUpdate: (details) {
-        if (details.delta.dx < 0 && index + 1 == characters.length) {
-          // swiping in right direction
-          Navigator.pop(context);
-        } else if (details.delta.dx < 0 && index + 1 < characters.length) {
+        if (details.delta.dx > 0 && characters[index].id == 1) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (BuildContext context) => CharactersGrid(),
+            ),
+          );
+        } else if (details.delta.dx > 0 && index + 1 < characters.length) {
           Navigator.push(
             context,
             MaterialPageRoute(
