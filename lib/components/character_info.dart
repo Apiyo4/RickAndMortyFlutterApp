@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmortyflutterapp/models/characters.dart';
-import 'characters_grid.dart';
+import '../main.dart';
+
 import 'list_tile_info.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +19,7 @@ class CharacterInfo extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => CharactersGrid(),
+              builder: (BuildContext context) => MyApp(),
             ),
           );
         } else if (details.delta.dx > 0 && index + 1 < characters.length) {
