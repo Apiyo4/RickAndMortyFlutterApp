@@ -7,8 +7,8 @@ class CharactersGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Character> characters =
-        Provider.of<CharactersList>(context).characters;
-    print(characters[0].name);
+        Provider.of<CharactersList>(context).characters.reversed.toList();
+
     return GridView.count(
       crossAxisCount: 2,
       children: List.generate(characters.length, (index) {
